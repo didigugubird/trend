@@ -1,0 +1,10 @@
+redis:6379
+eureka-server：8761
+index-codes-service:8765-8770
+index-data-service:8771-8780
+gateway-:8764
+gather-store-:8763
+third-part-data-:8762
+backtest-service-:8781
+backtest-view-8782
+config-:8760

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: index-hystrix-dashboard
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"

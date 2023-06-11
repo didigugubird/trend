@@ -1,0 +1,40 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: index-gateway-service
+  zipkin:
+    base-url: http://localhost:9411
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+      routes:
+        - id: index-codes-service
+          uri: lb://index-codes-service
+          predicates:
+            - Path=/api-codes/**
+          filters:
+            - StripPrefix=1
+        - id: index-data-service
+          uri: lb://index-data-service
+          predicates:
+            - Path=/api-data/**
+          filters:
+            - StripPrefix=1
+        - id: trend-trading-backtest-service
+          uri: lb://trend-trading-backtest-service
+          predicates:
+            - Path=/api-backtest/**
+          filters:
+            - StripPrefix=1
+        - id: trend-trading-backtest-view
+          uri: lb://trend-trading-backtest-view
+          predicates:
+            - Path=/api-view/**
+          filters:
+            - StripPrefix=1

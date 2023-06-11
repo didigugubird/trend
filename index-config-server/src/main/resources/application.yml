@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: index-config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/didigugubird/trendConfig/
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
